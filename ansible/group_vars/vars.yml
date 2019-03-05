@@ -1,0 +1,17 @@
+apt_packages:
+  - "ansible"
+  - "git"
+  - "packer"
+  - "python2.7"
+  - "python3.7"
+  - "python-pip"
+  - "unzip"
+  - "zsh"
+
+pip_packages:
+  - "awscli"
+  - "pytest"
+
+terraform_package: https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip
+terraform_version: 0.10.7
+terraform_directory: /usr/local/bin/

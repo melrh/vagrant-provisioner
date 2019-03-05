@@ -1,0 +1,13 @@
+# Installs pip packages
+---
+- hosts: all
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install pip packages
+      pip:
+        executable: pip
+        name: "{{ item }}"
+        state: latest
+      with_items: '{{ pip_packages }}'

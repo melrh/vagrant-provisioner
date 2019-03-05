@@ -1,0 +1,4 @@
+---
+
+- import_playbook: tasks/apt.yml
+- import_playbook: tasks/pip.yml
