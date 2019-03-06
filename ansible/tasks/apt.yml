@@ -4,8 +4,14 @@
   gather_facts: false
   become: true
 
-# Update & Upgrade apt
+
   tasks:
+    - name: Add atom repository
+      apt_repository:
+        repo: ppa:webupd8team/atom
+        filename: atom
+
+# Update & Upgrade apt
     - name: Update apt
       apt:
         state: latest
@@ -15,6 +21,12 @@
         upgrade: yes
 
 # Installs apt-get packages
+
+    - name: Install atom
+      apt:
+        name: atom
+        state: present
+
     - name: Installing apt packages
       apt:
         name: "{{ apt_packages }}"
