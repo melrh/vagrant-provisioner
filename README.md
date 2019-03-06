@@ -1,6 +1,8 @@
 # Vagrant Provisioner with Ansible
 
-Vagrant is provisioned using Ansible to create a working environment. The vagrant box is an Ubuntu machine, and the packages are installed using apt-get and pip.
+In this project, Vagrant is provisioned using Ansible to create a working environment I can use for development. The vagrant box is an Ubuntu machine, and the packages are installed using apt-get and pip.
+
+##### Tree Structure
 ```
 .
 ├── README.md
@@ -13,6 +15,7 @@ Vagrant is provisioned using Ansible to create a working environment. The vagran
 │   └── tasks
 │       ├── apt.yml
 │       └── pip.yml
+.
 ```
 There are separate playbooks for the apt-get install & pip packages, and these are both imported into the main playbook.yml file.
 
@@ -26,22 +29,30 @@ Install VirtualBox and Vagrant on your machine.
 
 #### MacOS
 Install via brew
-
-`brew cask install virtualbox`
-
-`brew cask install vagrant`
+```
+brew cask install virtualbox
+brew cask install vagrant
+```
 
 #### Windows
 
-``
+```
+```
 
 #### Ubuntu / Debian
-
-`sudo apt-get install virtualbox`
+```
+sudo apt-get install virtualbox
+sudo apt-get install vagrant
+```
 
 #### CentOS
 
-``
+```
+sudo yum install kernel-devel kernel-headers make patch gcc
+sudo wget https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo -P /etc/yum.repos.d
+sudo yum install VirtualBox-5.2
+sudo yum install https://releases.hashicorp.com/vagrant/2.2.0/vagrant_2.2.0_x86_64.rpm
+```
 ### Build the Vagrant Box
 
 Once Vagrant and VirtualBox have been installed, clone this project with the following command
