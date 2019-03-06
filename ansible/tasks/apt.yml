@@ -6,12 +6,6 @@
 
 
   tasks:
-    - name: Add atom repository
-      apt_repository:
-        repo: ppa:webupd8team/atom
-        filename: atom
-
-# Update & Upgrade apt
     - name: Update apt
       apt:
         state: latest
@@ -20,12 +14,8 @@
       apt:
         upgrade: yes
 
-# Installs apt-get packages
 
-    - name: Install atom
-      apt:
-        name: atom
-        state: present
+# Installs apt-get packages
 
     - name: Installing apt packages
       apt:
@@ -33,6 +23,15 @@
         state: "present"
       with_items: '{{ apt_packages }}'
 
+      #    - name: Atom Download
+      #      get_url:
+      #       url: "{{ atom_url }}"
+      #       dest: /tmp/atom-amd64.deb
+
+    - name: Unzip Atom
+      apt:
+        deb: "{{ atom_url }}"
+        state: present
 
 # Installs Terraform according to Version specified in group_vars/vars.yml
 
@@ -46,3 +45,8 @@
         src: /tmp/terraform-{{terraform_version}}.zip
         dest: "{{ terraform_directory }}"
         copy: no
+
+
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
