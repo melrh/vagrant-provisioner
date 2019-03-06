@@ -12,6 +12,6 @@ pip_packages:
   - "awscli"
   - "pytest"
 
-terraform_package: https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip
+#terraform_package: https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip
 terraform_version: 0.10.7
 terraform_directory: /usr/local/bin/
