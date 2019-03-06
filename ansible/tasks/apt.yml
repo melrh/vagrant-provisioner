@@ -23,12 +23,7 @@
         state: "present"
       with_items: '{{ apt_packages }}'
 
-      #    - name: Atom Download
-      #      get_url:
-      #       url: "{{ atom_url }}"
-      #       dest: /tmp/atom-amd64.deb
-
-    - name: Unzip Atom
+    - name: Install Atom
       apt:
         deb: "{{ atom_url }}"
         state: present

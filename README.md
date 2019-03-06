@@ -34,10 +34,6 @@ brew cask install virtualbox
 brew cask install vagrant
 ```
 
-#### Windows
-
-```
-```
 
 #### Ubuntu / Debian
 ```
