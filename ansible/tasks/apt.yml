@@ -15,8 +15,6 @@
         upgrade: yes
 
 
-# Installs apt-get packages
-
     - name: Installing apt packages
       apt:
         name: "{{ apt_packages }}"
@@ -28,14 +26,15 @@
         deb: "{{ atom_url }}"
         state: present
 
-# Installs Terraform according to Version specified in group_vars/vars.yml
+  
+  # Installs Terraform according to Version specified in group_vars/vars.yml
 
     - name: Download terraform
       get_url:
         url: https://releases.hashicorp.com/terraform/{{terraform_version}}/terraform_{{ terraform_version }}_linux_amd64.zip
         dest: /tmp/terraform-{{terraform_version}}.zip
 
-    - name: Unzip downloaded Terraform archive
+    - name: Unzip Terraform archive & install
       unarchive:
         src: /tmp/terraform-{{terraform_version}}.zip
         dest: "{{ terraform_directory }}"
